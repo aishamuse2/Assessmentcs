@@ -1,1 +1,5 @@
 https://docs.google.com/spreadsheets/d/1TCMEfABpLY2XV9Zm8g8ZtVRmlw9tF2TFIYwCN2PH5mQ/edit?usp=sharing
+
+//From the Results the doubleAppend()is much more structured than doubleInsert() however doubleInsert() was faster in some cases 
+but this only happened because of the small input size. doubleAppend() is clealy more effecient when handeling larger input.
+From the Results the shape of the graph is much steeper for doubleInsert() which shows how less effecient it really is
