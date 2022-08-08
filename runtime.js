@@ -56,32 +56,89 @@ perf.start();
 doublerInsert(extraLargeArray);
 let resultsInsert = perf.stop();
 
+perf.start();                     
+doublerAppend(largeArray);
+let resultsLargeAppend = perf.stop(); 
+
+perf.start();
+doublerInsert(largeArray);
+let resultsLargeInsert = perf.stop();
+
+perf.start();                     
+doublerAppend(mediumArray);
+let resultsMediumAppend = perf.stop(); 
+
+perf.start();
+doublerInsert(mediumArray);
+let resultsMediumInsert = perf.stop();
+
+perf.start();                     
+doublerAppend(smallArray);
+let resultsSmallAppend = perf.stop(); 
+
+perf.start();
+doublerInsert(smallArray);
+let resultsSmallInsert = perf.stop();
+
+perf.start();                     
+doublerAppend(tinyArray);
+let resultsTinyAppend = perf.stop(); 
+
+perf.start();
+doublerInsert(tinyArray);
+let resultsTinyInsert = perf.stop();
+
+
+console.log('Results for the tinyArray');
+console.log("insert", resultsTinyInsert.preciseWords);
+console.log("append", resultsTinyAppend.preciseWords);
+
+
+console.log('Results for the smallArray');
+console.log("insert", resultsSmallInsert.preciseWords);
+console.log("append", resultsSmallAppend.preciseWords);
+
+
+console.log('Results for the mediumArray');
+console.log("insert", resultsMediumInsert.preciseWords);
+console.log("append", resultsMediumAppend.preciseWords);
+
+
+console.log('Results for the largeArray');
+console.log("insert", resultsLargeInsert.preciseWords);
+console.log("append", resultsLargeAppend.preciseWords);
+
 
 console.log('Results for the extraLargeArray');
 console.log("insert", resultsInsert.preciseWords);
 console.log("append", resultsAppend.preciseWords);
 
 
+
 // Question 1// Write a function that takes in an array of numbers. The function should return True if any two numberss in list sum to 0, and false otherwise.
 
 // Starting array
-let addToZero = [5,7,-6, 30, 3, 2, 6]
+const addToZero = (nums) =>{
 
 // Write your solution below:
-let value = false;
-for (let i = 0; i < addToZero.length; i++) {
-  for (let j = 0; j < addToZero.length; j++) {
+
+for (let i = 0; i < nums.length; i++) {
+  for (let j = 0; j < nums.length; j++) {
     if (i !== j) {
-      if (addToZero[i] + addToZero[j] === 0) {
-        value = true;
+      if (nums[i] + nums[j] === 0) {
+         return true;
       } 
     }
   }
+  return false;
 }
+};
+
+
 // space complexity= 0(1)
 // time complexity = 0(n^2)
+//console.log(addToZero([2,3,5,7,]))
 
-// console.log(value)
 
 // Question 2// Write a function that takes in a single word, as a string. It should return True if that word contains only unique characters. Return False otherwise.
   
@@ -92,9 +149,9 @@ function hasUniqueChars(word) {
     }
     return uniqueChars.size === word.length
   }
-// space complexity=0(1)
+// space complexity=0(n)
 //   time complexity =0(1)
-//   console.log(hasUniqueChars("aisha"))
+  //console.log(hasUniqueChars("aisha"))
 
 //  Question 3 A pangram is a sentence that contains all the letters of the English alphabet at least once, like “The quick brown fox jumps over the lazy dog.”
 
@@ -111,7 +168,7 @@ function isPangram(string){
 
   }
 
-// space complexity=0(1)
+// space complexity=0(n)
 //   time complexity =0(n)
 //  console.log(isPangram("The five boxing wizards jump quickly"))
 
@@ -122,8 +179,8 @@ function isPangram(string){
 // //   console.log(findLongestWord("hi", "hello"))
 
 function findLongestWord(str) {
-    var strSplit = str.split(' ');
-    var longestWord = 0;
+    let strSplit = str.split(' ');
+    let longestWord = 0;
     for(var i = 0; i < strSplit.length; i++){
       if(strSplit[i].length > longestWord){
       longestWord = strSplit[i].length;
@@ -133,4 +190,4 @@ function findLongestWord(str) {
   }
 // space complexity=0(n)
 //   time complexity =0(n)
-//   console.log(findLongestWord("bike ","bye"))
+ // console.log(findLongestWord("bike ","bye"))
